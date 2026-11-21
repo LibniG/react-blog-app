@@ -1,26 +1,33 @@
 import { Link } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
+import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
-  const { theme, toggleTheme } = useTheme();
+    const { user, logout } = useAuth();
 
-  return (
-    <header className="header">
-      <Link className="site-title" to="/">
-        My Blog
-      </Link>
+    return (
+        <header className="header">
+            <Link to="/" className="site-title">
+                My Blog
+            </Link>
 
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/posts/1">First Post</Link>
-        <Link to="/contact">Contact</Link>
+            <nav>
+                <Link to="/">Home</Link>
+                <Link to="/blog">Blog</Link>
+                <Link to="/contact">Contact</Link>
 
-        <button className="theme-button" onClick={toggleTheme}>
-          {theme === "light" ? "Dark Mode" : "Light Mode"}
-        </button>
-      </nav>
-    </header>
-  );
+                {user ? (
+                    <>
+                        <span>Welcome, {user.username}!</span>
+                        <button onClick={logout}>
+                            Logout
+                        </button>
+                    </>
+                ) : (
+                    <Link to="/login">Login</Link>
+                )}
+            </nav>
+        </header>
+    );
 }
 
 export default Navbar;

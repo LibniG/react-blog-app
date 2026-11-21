@@ -485,3 +485,45 @@ body {
     padding: 22px;
   }
 }
+
+/* Login Page */
+
+.login-card {
+    max-width: 550px;
+    margin: 40px auto;
+}
+
+.login-card h1 {
+    text-align: center;
+}
+
+.login-card > p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.login-form label {
+    font-weight: bold;
+}
+
+.login-form input {
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+.login-form button {
+    padding: 14px;
+    margin-top: 12px;
+    background: #347cf3;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
